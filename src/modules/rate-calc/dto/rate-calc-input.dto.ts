@@ -1,10 +1,58 @@
-import { IsNotEmpty } from "class-validator";
-import { IRateCalcInputCdr, IRateCalcInputRate } from "../rate-calc.interface";
+import { ApiProperty } from "@nestjs/swagger";
+import { Type } from "class-transformer";
+import { IsDateString, IsNotEmpty, IsNumber, IsObject, ValidateNested } from "class-validator";
 
+
+class RateDto {
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsNumber()
+    readonly energy: number;
+
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsNumber()
+    readonly time: number;
+    
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsNumber()
+    readonly transaction: number;
+}
+
+class CdrDto {
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsNumber()
+    readonly meterStart: number;
+
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsNumber()
+    readonly meterStop: number;
+
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsDateString()
+    readonly timestampStart: Date;
+    
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsDateString()
+    readonly timestampStop: Date;
+}
 export class RateCalcInputDto {
+    @ApiProperty()
+    @ValidateNested()
     @IsNotEmpty()
-    readonly rate: IRateCalcInputRate;
-
+    @IsObject()
+    @Type(()=>RateDto)
+    readonly rate: RateDto;
+    
+    @ApiProperty()
+    @ValidateNested()
     @IsNotEmpty()
-    readonly cdr: IRateCalcInputCdr
+    @IsObject()
+    @Type(()=>CdrDto)
+    readonly cdr: CdrDto;
 }

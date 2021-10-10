@@ -1,10 +1,15 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsNumber } from "class-validator";
-import { IRateCalcInputCdr, IRateCalcInputRate, IRateCalcOutputComponents } from "../rate-calc.interface";
-
 export class RateCalcOutputDto {
+    @ApiProperty()
     @IsNumber()
     readonly overall: number;
 
+    @ApiProperty()
     @IsNotEmpty()
-    readonly components: IRateCalcOutputComponents;
+    readonly components: {
+        energy: number;
+        time: number;
+        transaction: number;
+    };
 }
