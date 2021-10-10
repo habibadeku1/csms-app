@@ -2,7 +2,7 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { RateCalcInputDto } from './dto/rate-calc-input.dto';
 import { RateCalcService } from './rate-calc.service';
 
-@Controller('rate-calc')
+@Controller()
 export class RateCalcController {
 
     constructor(private readonly rateCalcService: RateCalcService) {}
