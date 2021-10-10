@@ -6,7 +6,7 @@ import { RateCalcOutputDto } from './dto/rate-calc-output.dto';
 @Injectable()
 export class RateCalcService {
 
-    async calculateRate(data: RateCalcInputDto): Promise<RateCalcOutputDto> {
+    async calculate(data: RateCalcInputDto): Promise<RateCalcOutputDto> {
         return await this.computeRate(data);
     }
 

@@ -18,8 +18,8 @@ export class RateCalcController {
     })
     @UsePipes(new ValidationPipe())
     @Post('rate')
-    async create(@Body() inputPayload: RateCalcInputDto) {
-      return this.rateCalcService.calculateRate(inputPayload);
+    async calculateCdrRate(@Body() inputPayload: RateCalcInputDto) {
+      return this.rateCalcService.calculate(inputPayload);
     }
 
 }
