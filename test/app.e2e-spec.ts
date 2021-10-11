@@ -20,7 +20,7 @@ describe('AppController (e2e)', () => {
   it('./rate (POST) valid request, valid response ', async () => {
     const mockRateCalcInput: RateCalcInputDto = {
       rate: { energy: 0.3, time: 2, transaction: 1 },
-      cdr: { meterStart: 1204307, timestampStart: "2021-04-05T10:04:00Z" as unknown as Date, meterStop: 1215230, timestampStop: "2021-04-05T11:27:00Z" as unknown as Date }
+      cdr: { meterStart: 1204307, timestampStart: "2021-04-05T10:04:00Z" as any, meterStop: 1215230, timestampStop: "2021-04-05T11:27:00Z" as any }
     }
     const mockRateCalcOutput: RateCalcOutputDto = {
       overall: 7.04 ,
@@ -37,7 +37,7 @@ describe('AppController (e2e)', () => {
     // invalid rate calc input, no energy field
     const invalidRateCalcInput = {
       rate: { time: 2, transaction: 1 },
-      cdr: { meterStart: 1204307, timestampStart: "2021-04-05T10:04:00Z"  as unknown as Date, meterStop: 1215230, timestampStop: "2021-04-05T11:27:00Z" as unknown as Date }
+      cdr: { meterStart: 1204307, timestampStart: "2021-04-05T10:04:00Z"  as any, meterStop: 1215230, timestampStop: "2021-04-05T11:27:00Z" as any }
     }
     
     const response = await request(app.getHttpServer()).post('/rate').send(invalidRateCalcInput);
