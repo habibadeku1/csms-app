@@ -34,12 +34,12 @@ class CdrDto {
     @ApiProperty()
     @IsNotEmpty()
     @IsDateString()
-    readonly timestampStart: Date | string;
+    readonly timestampStart: Date;
     
     @ApiProperty()
     @IsNotEmpty()
     @IsDateString()
-    readonly timestampStop: Date | string;
+    readonly timestampStop: Date;
 }
 export class RateCalcInputDto {
     @ApiProperty()
