@@ -22,6 +22,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+### Docker
+
+    docker-compose up
+
 ## Test
 
 ```bash
