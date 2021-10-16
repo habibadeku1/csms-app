@@ -22,6 +22,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+### Docker
+
+    docker-compose up
+
 ## Test
 
 ```bash
@@ -34,6 +38,10 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+### Docker
+
+    docker-compose run node npm run test
 
 ## Support
 
